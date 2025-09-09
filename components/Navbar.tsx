@@ -9,28 +9,34 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-white sticky top-0 left-0 z-50 w-full border-b">
+    <nav className="bg-purple-800 sticky top-0 left-0 z-50 w-full border-b">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
-          <span className="font-bold text-lg">CS Past Papers</span>
+          <span className="font-bold text-lg text-white">CS Past Papers</span>
         </Link>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 space-x-4">
           <Link href="/past-papers">
-            <Button variant="ghost" asChild>
+            <Button variant="ghost" className="text-white" asChild>
               <span>Past Papers</span>
             </Button>
           </Link>
           <Link href="/books">
-            <Button variant="ghost">Books</Button>
+            <Button variant="ghost" className="text-white" asChild>
+              <span>Books</span>
+            </Button>
           </Link>
           <Link href="/syllabus">
-            <Button variant="ghost">Syllabus</Button>
+            <Button variant="ghost" className="text-white" asChild>
+              <span>Syllabus</span>
+            </Button>
           </Link>
           <Link href="/revision-notes">
-            <Button variant="ghost">Revision Notes</Button>
+            <Button variant="ghost" className="text-white" asChild>
+              <span>Revision Notes</span>
+            </Button>
           </Link>
         </div>
 
