@@ -20,7 +20,7 @@ export default function ChooseProgramPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
         <Link href="/past-papers/a-level">
-          <Card className="hover:border-primary transition-colors">
+          <Card className="hover:border-purple-800 transition-colors">
             <CardHeader className="items-center text-center">
               <GraduationCap className="h-10 w-10 mb-2 text-primary" />
               <CardTitle className="text-xl">A-Level</CardTitle>
@@ -29,7 +29,7 @@ export default function ChooseProgramPage() {
           </Card>
         </Link>
         <Link href="/past-papers/igcse">
-          <Card className="hover:border-primary transition-colors">
+          <Card className="hover:border-purple-800 transition-colors">
             <CardHeader className="items-center text-center">
               <GraduationCap className="h-10 w-10 mb-2 text-primary" />
               <CardTitle className="text-xl">IGCSE</CardTitle>
