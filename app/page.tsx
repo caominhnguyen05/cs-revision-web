@@ -30,7 +30,7 @@ export default function HomePage() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl pt-6">
           {/* Past Papers Card */}
-          <Card className="text-left rounded-2xl transition-transform duration-300 hover:-translate-y-1 hover:scale-102 hover:shadow-xl">
+          <Card className="text-left rounded-2xl transition-transform duration-300 hover:-translate-y-1 hover:scale-102 hover:shadow-xl hover:shadow-purple-100">
             <CardHeader>
               <FileText className="h-8 w-8 mb-2 text-primary" />
               <CardTitle>Past Papers</CardTitle>
@@ -48,7 +48,7 @@ export default function HomePage() {
             </CardContent>
           </Card>
           {/* Books Card */}
-          <Card className="text-left rounded-2xl transition-transform duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-xl">
+          <Card className="text-left rounded-2xl transition-transform duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-xl hover:shadow-purple-100">
             <CardHeader>
               <BookOpen className="h-8 w-8 mb-2 text-primary" />
               <CardTitle>Recommended Books</CardTitle>
@@ -64,7 +64,7 @@ export default function HomePage() {
             </CardContent>
           </Card>
           {/* Syllabus Card */}
-          <Card className="text-left rounded-2xl transition-transform duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-xl">
+          <Card className="text-left rounded-2xl transition-transform duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-xl hover:shadow-purple-100">
             <CardHeader>
               <ClipboardList className="h-8 w-8 mb-2 text-primary" />
               <CardTitle>Syllabus</CardTitle>
@@ -80,7 +80,7 @@ export default function HomePage() {
             </CardContent>
           </Card>
           {/* Revision Notes Card */}
-          <Card className="text-left rounded-2xl transition-transform duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-xl">
+          <Card className="text-left rounded-2xl transition-transform duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-xl hover:shadow-purple-100">
             <CardHeader>
               <Lightbulb className="h-8 w-8 mb-2 text-primary" />
               <CardTitle>Revision Notes</CardTitle>
