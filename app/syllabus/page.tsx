@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import {
   Card,
-  CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
@@ -17,12 +16,19 @@ const syllabusCategories = [
       {
         id: 1,
         title: "Computer Science (9618)",
+        description: "The official syllabus for examinations in 2024 and 2025.",
+        file: "https://www.cambridgeinternational.org/Images/636089-2024-2025-syllabus.pdf",
+        year: "2024 - 2025",
+      },
+      {
+        id: 2,
+        title: "Computer Science (9618)",
         description: "The official syllabus for examinations in 2026.",
         file: "https://www.cambridgeinternational.org/Images/697372-2026-syllabus.pdf",
         year: "2026",
       },
       {
-        id: 2,
+        id: 3,
         title: "Computer Science (9618)",
         description: "The official syllabus for exams in 2027, 2028 and 2029.",
         file: "https://www.cambridgeinternational.org/Images/721397-2027-2029-syllabus.pdf",
@@ -34,7 +40,7 @@ const syllabusCategories = [
     categoryTitle: "IGCSE Syllabuses",
     syllabuses: [
       {
-        id: 3,
+        id: 4,
         title: "Computer Science (0478)",
         description:
           "The official syllabus for examinations in 2023, 2024 and 2025.",
@@ -42,7 +48,7 @@ const syllabusCategories = [
         year: "2023 - 2025",
       },
       {
-        id: 4,
+        id: 5,
         title: "Computer Science (0478)",
         description:
           "The official syllabus for examinations in 2026, 2027 and 2028.",
@@ -93,7 +99,7 @@ export default function SyllabusPage() {
                         rel="noopener noreferrer"
                         className="w-full"
                       >
-                        <Button className="w-full bg-purple-800 hover:bg-purple-900">
+                        <Button className="w-full bg-purple-700 hover:bg-purple-800">
                           <Download className="mr-2 h-4 w-4" />
                           Download PDF
                         </Button>
