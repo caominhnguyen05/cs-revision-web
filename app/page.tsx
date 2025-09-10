@@ -24,8 +24,8 @@ export default function HomePage() {
             Computer Science Past Papers Hub
           </h1>
           <p className="max-w-[700px] text-lg text-muted-foreground">
-            Your one-stop resource for Cambridge A-Level and IGCSE Computer
-            Science materials. Find everything you need to succeed.
+            Your one-stop resource for Cambridge International A-Level and IGCSE
+            Computer Science materials. Find everything you need to succeed.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl pt-6">
