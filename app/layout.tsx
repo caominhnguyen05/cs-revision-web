@@ -6,7 +6,7 @@ import { Navbar } from "@/components/Navbar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "CS Past Papers Hub",
+  title: "CS Revision Hub",
   description: "Find Cambridge A-Level and IGCSE past papers.",
 };
 
@@ -18,9 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* Global Navbar */}
         <Navbar />
-        {/* Page Wrapper */}
         <main className="container mx-auto px-6 py-10">{children}</main>
       </body>
     </html>
