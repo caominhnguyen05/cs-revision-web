@@ -37,9 +37,7 @@ export const signInSocial = async (provider: "github" | "google") => {
     },
   });
 
-  if (url) {
-    redirect(url);
-  }
+  return { url };
 };
 
 export const signOut = async () => {

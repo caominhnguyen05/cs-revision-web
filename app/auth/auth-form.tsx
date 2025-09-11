@@ -32,7 +32,11 @@ export default function AuthForm() {
     setError("");
 
     try {
-      await signInSocial(provider);
+      const result = await signInSocial(provider);
+      if (result.url) {
+        // Redirect on client side
+        window.location.href = result.url;
+      }
     } catch (err) {
       setError(
         `Error authenticating with ${provider}: ${
