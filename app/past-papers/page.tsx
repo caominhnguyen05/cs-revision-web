@@ -9,7 +9,7 @@ import { GraduationCap } from "lucide-react";
 
 export default function ChooseProgramPage() {
   return (
-    <div className="space-y-8">
+    <div className="container mx-auto px-6 py-8 space-y-8">
       <div className="text-center">
         <h1 className="text-3xl font-bold">Select a Program</h1>
         <p className="text-muted-foreground mt-2">

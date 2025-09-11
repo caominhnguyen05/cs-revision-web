@@ -61,7 +61,7 @@ const syllabusCategories = [
 
 export default function SyllabusPage() {
   return (
-    <div className="container mx-auto max-w-5xl px-4">
+    <div className="container mx-auto px-6 py-10 max-w-5xl">
       <div className="text-center mb-12">
         <h1 className="text-3xl font-extrabold tracking-tight lg:text-5xl">
           Explore the Latest Syllabus

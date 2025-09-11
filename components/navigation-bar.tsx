@@ -5,6 +5,9 @@ import { Menu, Code, User } from "lucide-react";
 import { useState } from "react";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { auth } from "@/lib/auth";
+
+type Session = typeof auth.$Infer.Session;
 
 const navItems = [
   { label: "Past Papers", href: "/past-papers" },
@@ -13,7 +16,7 @@ const navItems = [
   { label: "Revision Notes", href: "/revision-notes" },
 ];
 
-export function Navbar() {
+export default function Navbar({ session }: { session: Session | null }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -38,12 +41,24 @@ export function Navbar() {
               <span>{item.label}</span>
             </Link>
           ))}
-          <Link href="/auth">
-            <Button variant="outline" className="ml-4 bg-white ">
-              <User className="h-4 w-4 mr-1.5" />
-              Sign In
-            </Button>
-          </Link>
+
+          {session && (
+            <Link href="/profile">
+              <Button variant="outline" className="ml-4">
+                <User className="h-4 w-4 mr-1.5" />
+                My Profile
+              </Button>
+            </Link>
+          )}
+
+          {!session && (
+            <Link href="/auth">
+              <Button variant="outline" className="ml-4 bg-white ">
+                <User className="h-4 w-4 mr-1.5" />
+                Sign In
+              </Button>
+            </Link>
+          )}
         </div>
 
         {/* Mobile menu button */}

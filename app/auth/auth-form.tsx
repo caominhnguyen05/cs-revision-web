@@ -14,7 +14,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Github, Loader2, AlertCircle } from "lucide-react";
+import { Loader2, AlertCircle } from "lucide-react";
+import { signIn, signInSocial, signUp } from "@/lib/actions/auth-actions";
 
 export default function AuthForm() {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -31,7 +32,7 @@ export default function AuthForm() {
     setError("");
 
     try {
-      console.log("Logged in with", provider);
+      await signInSocial(provider);
     } catch (err) {
       setError(
         `Error authenticating with ${provider}: ${
@@ -50,9 +51,21 @@ export default function AuthForm() {
 
     try {
       if (isSignIn) {
-        console.log("Signed in");
+        const result = await signIn(email, password);
+        if (!result.user) {
+          setError("Invalid email or password.");
+        } else {
+          router.replace("/");
+          router.refresh();
+        }
       } else {
-        console.log("Signed up");
+        const result = await signUp(email, password, name);
+        if (!result.user) {
+          setError("Failed to create account.");
+        } else {
+          router.replace("/");
+          router.refresh();
+        }
       }
     } catch (err) {
       setError(
