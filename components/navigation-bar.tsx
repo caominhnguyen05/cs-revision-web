@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, Code } from "lucide-react";
+import { Menu, Code, User } from "lucide-react";
 import { useState } from "react";
-import { buttonVariants } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -32,12 +32,18 @@ export function Navbar() {
               href={item.href}
               className={cn(
                 buttonVariants({ variant: "ghost" }),
-                "text-white hover:bg-white hover:text-black relative group"
+                "text-white hover:bg-purple-700 hover:text-white relative group"
               )}
             >
               <span>{item.label}</span>
             </Link>
           ))}
+          <Link href="auth/login">
+            <Button variant="outline" className="ml-4 bg-white ">
+              <User className="h-4 w-4 mr-1.5" />
+              Sign In
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile menu button */}

@@ -11,7 +11,7 @@ import {
   PanelLeftClose,
 } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { SeriesSidebar } from "@/components/SeriesSidebar";
+import { SeriesSidebar } from "@/components/series-sidebar";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
