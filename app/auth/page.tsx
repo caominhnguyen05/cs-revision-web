@@ -12,7 +12,7 @@ export default async function LoginPage() {
     redirect("/profile");
   }
   return (
-    <div className="flex items-center justify-center bg-background">
+    <div className="flex items-center justify-center bg-background py-8 px-4">
       <div className="w-full max-w-md">
         <AuthForm />
       </div>

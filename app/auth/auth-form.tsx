@@ -83,7 +83,7 @@ export default function AuthForm() {
   };
 
   return (
-    <Card>
+    <Card className="border-0 border-white">
       <CardHeader className="text-center">
         <CardTitle className="text-2xl font-bold">
           {isSignIn ? "Welcome Back" : "Create Account"}
@@ -110,7 +110,7 @@ export default function AuthForm() {
               variant="outline"
               onClick={() => handleSocialAuth("google")}
               disabled={isLoading}
-              className="w-full"
+              className="w-full cursor-pointer"
             >
               <svg className="w-5 h-5 mr-3" viewBox="0 0 24 24">
                 <path
@@ -136,7 +136,7 @@ export default function AuthForm() {
               variant="outline"
               onClick={() => handleSocialAuth("github")}
               disabled={isLoading}
-              className="w-full"
+              className="w-full cursor-pointer"
             >
               <svg
                 className="w-5 h-5 mr-3"
@@ -220,7 +220,7 @@ export default function AuthForm() {
 
             <Button
               type="submit"
-              className="w-full bg-purple-800 hover:bg-purple-900"
+              className="w-full bg-purple-800 hover:bg-purple-900 cursor-pointer"
               disabled={isLoading}
             >
               {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
@@ -242,7 +242,7 @@ export default function AuthForm() {
           </span>
           <Button
             variant="link"
-            className="px-0 font-normal text-purple-800 hover:text-purple-900 underline underline-off-set-4"
+            className="px-0 font-normal text-purple-800 hover:text-purple-900 underline underline-off-set-4 cursor-pointer"
             onClick={() => {
               setIsSignIn(!isSignIn);
               setError("");

@@ -24,7 +24,7 @@ export default function Navbar({ session }: { session: Session | null }) {
       <div className="container relative mx-auto px-6 py-3.5 flex items-center">
         <Link href="/" className="flex items-center space-x-2">
           <Code className="h-6 w-6 text-purple-300" />
-          <span className="font-bold text-lg text-white">CS Past Papers</span>
+          <span className="font-bold text-lg text-white">CS Hub</span>
         </Link>
 
         {/* Nav items on far right on Desktop */}
@@ -44,7 +44,7 @@ export default function Navbar({ session }: { session: Session | null }) {
 
           {session && (
             <Link href="/profile">
-              <Button variant="outline" className="ml-4">
+              <Button variant="outline" className="ml-4 cursor-pointer">
                 <User className="h-4 w-4 mr-1.5" />
                 My Profile
               </Button>
@@ -53,7 +53,10 @@ export default function Navbar({ session }: { session: Session | null }) {
 
           {!session && (
             <Link href="/auth">
-              <Button variant="outline" className="ml-4 bg-white ">
+              <Button
+                variant="outline"
+                className="ml-4 bg-white cursor-pointer"
+              >
                 <User className="h-4 w-4 mr-1.5" />
                 Sign In
               </Button>
@@ -87,6 +90,36 @@ export default function Navbar({ session }: { session: Session | null }) {
               {item.label}
             </Link>
           ))}
+
+          {session ? (
+            <Link
+              href="/profile"
+              onClick={() => setIsOpen(false)}
+              className="w-full"
+            >
+              <Button
+                variant="outline"
+                className="w-full mt-2 cursor-pointer flex items-center justify-center"
+              >
+                <User className="h-4 w-4 mr-1.5" />
+                My Profile
+              </Button>
+            </Link>
+          ) : (
+            <Link
+              href="/auth"
+              onClick={() => setIsOpen(false)}
+              className="w-full"
+            >
+              <Button
+                variant="outline"
+                className="w-full mt-2 bg-white cursor-pointer flex items-center justify-center"
+              >
+                <User className="h-4 w-4 mr-1.5" />
+                Sign In
+              </Button>
+            </Link>
+          )}
         </div>
       )}
     </nav>
