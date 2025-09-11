@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/navigation-bar";
+import Navbar from "@/components/navigation-bar";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -10,16 +12,20 @@ export const metadata: Metadata = {
   description: "Find Cambridge A-Level and IGCSE past papers.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
+
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar />
-        <main className="container mx-auto px-6 py-10">{children}</main>
+        <Navbar session={session} />
+        <main className="">{children}</main>
       </body>
     </html>
   );
