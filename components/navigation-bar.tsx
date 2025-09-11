@@ -38,7 +38,7 @@ export function Navbar() {
               <span>{item.label}</span>
             </Link>
           ))}
-          <Link href="auth/login">
+          <Link href="/auth">
             <Button variant="outline" className="ml-4 bg-white ">
               <User className="h-4 w-4 mr-1.5" />
               Sign In
