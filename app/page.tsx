@@ -41,7 +41,7 @@ export default function HomePage() {
             </CardHeader>
             <CardContent>
               <Link href="/past-papers">
-                <Button className="bg-purple-800 hover:bg-purple-900">
+                <Button className="bg-purple-800 hover:bg-purple-900 cursor-pointer">
                   Go to Past Papers <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
@@ -59,7 +59,9 @@ export default function HomePage() {
             </CardHeader>
             <CardContent>
               <Link href="/books">
-                <Button variant="outline">View Books</Button>
+                <Button variant="outline" className="cursor-pointer">
+                  View Books
+                </Button>
               </Link>
             </CardContent>
           </Card>
@@ -75,7 +77,9 @@ export default function HomePage() {
             </CardHeader>
             <CardContent>
               <Link href="/syllabus">
-                <Button variant="outline">See Syllabus</Button>
+                <Button variant="outline" className="cursor-pointer">
+                  See Syllabus
+                </Button>
               </Link>
             </CardContent>
           </Card>
@@ -91,7 +95,9 @@ export default function HomePage() {
             </CardHeader>
             <CardContent>
               <Link href="/revision-notes">
-                <Button variant="outline">Find Notes</Button>
+                <Button variant="outline" className="cursor-pointer">
+                  Find Notes
+                </Button>
               </Link>
             </CardContent>
           </Card>
