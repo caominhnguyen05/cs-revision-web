@@ -18,7 +18,7 @@ import {
 export default function HomePage() {
   return (
     <div>
-      <section className="flex flex-col items-center text-center space-y-6 py-6">
+      <section className="flex flex-col items-center text-center space-y-6 px-6 py-6">
         <div className="space-y-4">
           <h1 className="text-4xl md:text-5xl font-bold tracking-tighter">
             Computer Science Past Papers Hub
