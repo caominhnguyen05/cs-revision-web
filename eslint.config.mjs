@@ -19,6 +19,8 @@ const eslintConfig = [
       "build/**",
       "next-env.d.ts",
       "node_modules/.prisma/**",
+      "lib/generated/prisma/**",
+      "**/prisma/generated/**",
       "prisma/generated/**",
     ],
   },
