@@ -25,6 +25,8 @@ export function BookCard({ book }: { book: Book }) {
         <Image
           src={book.coverImage}
           alt={book.title}
+          height={800}
+          width={300}
           className="max-h-full object-contain"
         />
       </div>
@@ -42,7 +44,7 @@ export function BookCard({ book }: { book: Book }) {
 
       <CardFooter>
         <a href={book.pdfUrl} target="_blank" rel="noopener noreferrer">
-          <Button className="flex items-center gap-2 bg-purple-800 hover:bg-purple-900">
+          <Button className="flex items-center gap-2 bg-purple-800 hover:bg-purple-900 cursor-pointer">
             <FileText className="h-4 w-4" /> Download PDF
           </Button>
         </a>

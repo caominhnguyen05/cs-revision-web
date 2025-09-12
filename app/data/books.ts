@@ -9,8 +9,7 @@ export interface Book {
 export const books: Book[] = [
   {
     title: "Cambridge International AS & A Level Computer Science",
-    coverImage:
-      "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTCZTI7fdj_o3qlfVeXn7uJSsrq0M4np7ak8DPssbVB9vmEllo6",
+    coverImage: "/books/a-level-hodder.jpg",
     pdfUrl:
       "https://drive.google.com/file/d/1nb859S164RvpbcRB3dZ-SSn2uTjBnT_1/view?usp=sharing",
     author: "David Watson, Helen Williams",
@@ -18,8 +17,7 @@ export const books: Book[] = [
   },
   {
     title: "Cambridge IGCSE and O Level Computer Science - Second Edition",
-    coverImage:
-      "https://m.media-amazon.com/images/I/71cGqLy1UGL._UF1000,1000_QL80_.jpg",
+    coverImage: "/books/igcse-hodder.jpg",
     pdfUrl:
       "https://drive.google.com/file/d/1axKhBz83_g8xTZCCBBfSSz_7acSVn9iA/view?usp=sharing",
     author: "David Watson, Helen Williams",
@@ -28,8 +26,7 @@ export const books: Book[] = [
   {
     title:
       "Computer Science for Cambridge International AS & A Level - Coursebook",
-    coverImage:
-      "https://wisdombooks.lk/cdn/shop/products/416pMsBoDRL.jpg?v=1659520049",
+    coverImage: "/books/a-level-cambridge.jpg",
     pdfUrl:
       "https://drive.google.com/file/d/18I9tLp7yYr5BZyJAkAUICcMIQ1gQCvOQ/view?usp=sharing",
     author: "Sylvia Langfield & Dave Duddell",
