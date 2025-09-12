@@ -19,7 +19,7 @@ export interface Syllabus {
 
 export function SyllabusCard({ syllabus }: { syllabus: Syllabus }) {
   return (
-    <Card className="flex flex-col">
+    <Card className="flex flex-col transition-transform duration-300 hover:-translate-y-1 hover:scale-102 hover:shadow-xl hover:shadow-gray-100">
       <CardHeader>
         <div className="flex justify-between items-start">
           <CardTitle className="text-lg md:text-xl">{syllabus.title}</CardTitle>
@@ -36,7 +36,7 @@ export function SyllabusCard({ syllabus }: { syllabus: Syllabus }) {
             rel="noopener noreferrer"
             className="w-full"
           >
-            <Button className="w-full bg-purple-700 hover:bg-purple-800">
+            <Button className="w-full bg-purple-700 hover:bg-purple-800 cursor-pointer">
               <Download className="mr-2 h-4 w-4" />
               Download PDF
             </Button>
