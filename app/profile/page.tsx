@@ -1,5 +1,5 @@
 import { auth } from "@/lib/auth";
-import DashboardClientPage from "./dashboard-client";
+import DashboardClientPage from "./profile-dashboard";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 

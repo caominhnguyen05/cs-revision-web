@@ -1,11 +1,5 @@
 import papersData from "./papers-data.json";
 
-interface Paper {
-  program: string;
-  qp: string;
-  ms: string;
-}
-
 const parseFileName = (filename: string) => {
   const parts = filename.split("_");
   if (parts.length < 3) return null;
