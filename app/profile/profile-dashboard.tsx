@@ -46,7 +46,6 @@ import {
   CheckSquare,
   LogOut,
   BookOpenCheck,
-  ChevronUp,
   Settings,
   ChevronsUpDown,
 } from "lucide-react";
@@ -303,7 +302,7 @@ function TodoPastPapersTab() {
       <div>
         <h1 className="text-3xl font-bold tracking-tight">Todo Past Papers</h1>
         <p className="text-muted-foreground">
-          Past papers you've scheduled to complete.
+          Past papers you&apos;ve scheduled to complete.
         </p>
       </div>
 
