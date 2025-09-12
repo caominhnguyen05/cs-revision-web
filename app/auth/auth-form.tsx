@@ -17,7 +17,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Loader2, AlertCircle } from "lucide-react";
 import { signIn, signInSocial, signUp } from "@/lib/actions/auth-actions";
 
-export default function AuthForm() {
+export default function AuthenticationForm() {
   const [isSignIn, setIsSignIn] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
