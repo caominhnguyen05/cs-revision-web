@@ -41,7 +41,7 @@ export function SeriesSidebar({
           >
             <Button
               variant={activeSeriesSlug === series.slug ? "secondary" : "ghost"}
-              className="w-full justify-start"
+              className="w-full justify-start cursor-pointer"
             >
               {series.displayName}
             </Button>

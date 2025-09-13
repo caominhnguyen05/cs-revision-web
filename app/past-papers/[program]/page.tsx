@@ -138,7 +138,7 @@ export default function PastPapersLayoutPage({
             <Button
               variant="outline"
               size="icon"
-              className="hidden md:flex"
+              className="hidden md:flex cursor-pointer"
               onClick={() => setIsSidebarOpen(!isSidebarOpen)}
             >
               {isSidebarOpen ? (
@@ -152,7 +152,11 @@ export default function PastPapersLayoutPage({
             {/* Mobile Sheet Trigger */}
             <Sheet open={isMobileSheetOpen} onOpenChange={setIsMobileSheetOpen}>
               <SheetTrigger asChild>
-                <Button variant="outline" size="icon" className="md:hidden">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="md:hidden cursor-pointer"
+                >
                   <PanelLeftOpen className="h-5 w-5" />
                   <span className="sr-only">Open Series Menu</span>
                 </Button>
@@ -211,6 +215,7 @@ export default function PastPapersLayoutPage({
                             <TooltipTrigger asChild>
                               <Button
                                 variant="ghost"
+                                className="cursor-pointer"
                                 size="icon"
                                 onClick={() => handleAddTodo(paperId)}
                               >
@@ -229,7 +234,11 @@ export default function PastPapersLayoutPage({
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <Button variant="outline" size="sm">
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="cursor-pointer"
+                          >
                             <FileText className="mr-2 h-4 w-4" /> QP
                           </Button>
                         </a>
@@ -238,7 +247,7 @@ export default function PastPapersLayoutPage({
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <Button size="sm">
+                          <Button size="sm" className="cursor-pointer">
                             <CheckSquare className="mr-2 h-4 w-4" /> MS
                           </Button>
                         </a>
