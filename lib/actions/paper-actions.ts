@@ -117,3 +117,28 @@ export const removeTodoPaper = async (paperId: string) => {
 
   revalidatePath("/dashboard");
 };
+
+export const removeCompletedPaper = async (paperId: string) => {
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
+  if (!session?.user) {
+    throw new Error("Not authenticated");
+  }
+
+  const user = await prisma.user.findUnique({
+    where: { id: session.user.id },
+    select: { completedPastPapers: true },
+  });
+
+  if (!user) return;
+
+  const newCompletedList = user.completedPastPapers.filter(
+    (p) => p !== paperId
+  );
+
+  await prisma.user.update({
+    where: { id: session.user.id },
+    data: { completedPastPapers: newCompletedList },
+  });
+};
