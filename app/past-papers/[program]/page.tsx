@@ -200,6 +200,7 @@ export default function PastPapersLayoutPage({
                             <TooltipTrigger asChild>
                               <Button
                                 variant="ghost"
+                                className="cursor-pointer"
                                 size="icon"
                                 onClick={() => handleRemoveTodo(paperId)}
                               >
