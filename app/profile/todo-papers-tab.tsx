@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { completePaper } from "@/lib/actions/paper-actions";
-import { CheckSquare, FileText, ListTodo } from "lucide-react";
+import { CheckSquare, FileText, ListTodo, Plus } from "lucide-react";
+import Link from "next/link";
 import { toast } from "sonner";
 
 const generatePaperUrl = (paperId: string) => {
@@ -34,11 +35,22 @@ export default function TodoPastPapersTab({
 
   return (
     <div className="grid gap-6">
-      <div>
-        <h1 className="text-3xl font-bold tracking-tight">Todo Past Papers</h1>
-        <p className="text-muted-foreground">
-          Past papers you've scheduled to complete.
-        </p>
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-3xl font-bold tracking-tight">
+            Todo Past Papers
+          </h1>
+          <p className="text-muted-foreground">
+            Past papers you&apos;ve scheduled to complete.
+          </p>
+        </div>
+
+        <Button asChild>
+          <Link href="/past-papers">
+            <Plus className="mr-2 h-4 w-4" />
+            Add To-do Paper
+          </Link>
+        </Button>
       </div>
 
       <div className="grid gap-4">

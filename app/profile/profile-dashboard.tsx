@@ -62,7 +62,12 @@ export default function DashboardClientPage({
           />
         );
       case "completed":
-        return <CompletedPastPapersTab papers={paperLists.completed} />;
+        return (
+          <CompletedPastPapersTab
+            papers={paperLists.completed}
+            refreshLists={refreshLists}
+          />
+        );
       default:
         return <ProfileTab user={user} />;
     }
