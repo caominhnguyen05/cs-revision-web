@@ -48,7 +48,10 @@ import {
   BookOpenCheck,
   Settings,
   ChevronsUpDown,
+  CheckCircle2,
 } from "lucide-react";
+import { completePaper, getPastPaperLists } from "@/lib/actions/paper-actions";
+import { toast } from "sonner";
 
 type Session = typeof auth.$Infer.Session;
 type UserData = Session["user"];
@@ -182,19 +185,40 @@ function AppSidebar({
   );
 }
 
-// Main Dashboard Component
-export default function DashboardClientPage({ session }: { session: Session }) {
+type PaperLists = {
+  todo: string[];
+  completed: string[];
+};
+
+export default function DashboardClientPage({
+  session,
+  initialPaperLists,
+}: {
+  session: Session;
+  initialPaperLists: PaperLists;
+}) {
   const [activeTab, setActiveTab] = useState("profile");
+  const [paperLists, setPaperLists] = useState(initialPaperLists);
   const user = session.user;
+
+  const refreshLists = async () => {
+    const lists = await getPastPaperLists();
+    setPaperLists(lists);
+  };
 
   const renderContent = () => {
     switch (activeTab) {
       case "profile":
         return <ProfileTab user={user} />;
       case "todo":
-        return <TodoPastPapersTab />;
+        return (
+          <TodoPastPapersTab
+            papers={paperLists.todo}
+            refreshLists={refreshLists}
+          />
+        );
       case "completed":
-        return <CompletedPastPapersTab />;
+        return <CompletedPastPapersTab papers={paperLists.completed} />;
       default:
         return <ProfileTab user={user} />;
     }
@@ -240,7 +264,6 @@ export default function DashboardClientPage({ session }: { session: Session }) {
   );
 }
 
-// Content for "My Profile" Tab
 function ProfileTab({ user }: { user: UserData }) {
   return (
     <div className="grid gap-6">
@@ -296,46 +319,69 @@ function ProfileTab({ user }: { user: UserData }) {
   );
 }
 
-function TodoPastPapersTab() {
+function TodoPastPapersTab({
+  papers,
+  refreshLists,
+}: {
+  papers: string[];
+  refreshLists: () => void;
+}) {
+  const handleCompletePaper = async (paperId: string) => {
+    try {
+      await completePaper(paperId);
+      await refreshLists();
+      toast.success(`Completed paper: ${paperId}`);
+    } catch (error) {
+      toast.error("Failed to mark paper as complete.");
+    }
+  };
+
   return (
     <div className="grid gap-6">
       <div>
         <h1 className="text-3xl font-bold tracking-tight">Todo Past Papers</h1>
         <p className="text-muted-foreground">
-          Past papers you&apos;ve scheduled to complete.
+          Past papers you've scheduled to complete.
         </p>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        <Card className="col-span-full">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <ListTodo className="h-5 w-5" />
-              Upcoming Papers
-            </CardTitle>
-            <CardDescription>
-              Your scheduled exam papers and practice sessions.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="flex items-center justify-center h-32">
-            <div className="text-center">
-              <ListTodo className="h-12 w-12 mx-auto text-muted-foreground mb-2" />
-              <p className="text-muted-foreground">No papers scheduled yet</p>
-              <p className="text-sm text-muted-foreground">
-                Add your first paper to get started
-              </p>
-            </div>
-          </CardContent>
-          <CardFooter className="border-t px-6 py-4">
-            <Button>Add Paper</Button>
-          </CardFooter>
-        </Card>
+      <div className="grid gap-4">
+        {papers.length > 0 ? (
+          papers.map((paperId) => (
+            <Card key={paperId}>
+              <CardContent className="p-4 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <ListTodo className="h-5 w-5 text-muted-foreground" />
+                  <span className="font-mono font-medium">{paperId}</span>
+                </div>
+                <Button size="sm" onClick={() => handleCompletePaper(paperId)}>
+                  <CheckSquare className="mr-2 h-4 w-4" />
+                  Mark as Complete
+                </Button>
+              </CardContent>
+            </Card>
+          ))
+        ) : (
+          <Card className="col-span-full">
+            <CardContent className="flex items-center justify-center h-40">
+              <div className="text-center">
+                <ListTodo className="h-12 w-12 mx-auto text-muted-foreground mb-2" />
+                <p className="text-muted-foreground">
+                  Your to-do list is empty.
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  Go to the past papers section to add papers.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        )}
       </div>
     </div>
   );
 }
 
-function CompletedPastPapersTab() {
+function CompletedPastPapersTab({ papers }: { papers: string[] }) {
   return (
     <div className="grid gap-6">
       <div>
@@ -345,27 +391,29 @@ function CompletedPastPapersTab() {
         </p>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        <Card className="col-span-full">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <CheckSquare className="h-5 w-5" />
-              Completed Papers
-            </CardTitle>
-            <CardDescription>
-              A history of all the past papers you have finished.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="flex items-center justify-center h-32">
-            <div className="text-center">
-              <CheckSquare className="h-12 w-12 mx-auto text-muted-foreground mb-2" />
-              <p className="text-muted-foreground">No completed papers yet</p>
-              <p className="text-sm text-muted-foreground">
-                Complete your first paper to see it here
-              </p>
-            </div>
-          </CardContent>
-        </Card>
+      <div className="grid gap-4">
+        {papers.length > 0 ? (
+          papers.map((paperId) => (
+            <Card key={paperId}>
+              <CardContent className="p-4 flex items-center gap-2 text-green-600">
+                <CheckCircle2 className="h-5 w-5" />
+                <span className="font-mono font-medium">{paperId}</span>
+              </CardContent>
+            </Card>
+          ))
+        ) : (
+          <Card className="col-span-full">
+            <CardContent className="flex items-center justify-center h-40">
+              <div className="text-center">
+                <CheckSquare className="h-12 w-12 mx-auto text-muted-foreground mb-2" />
+                <p className="text-muted-foreground">No completed papers yet</p>
+                <p className="text-sm text-muted-foreground">
+                  Complete your first paper to see it here.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        )}
       </div>
     </div>
   );
