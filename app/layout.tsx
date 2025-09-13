@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/navigation-bar";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,7 +26,8 @@ export default async function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Navbar session={session} />
-        <main className="">{children}</main>
+        <main>{children}</main>
+        <Toaster position="top-center" richColors />
       </body>
     </html>
   );
