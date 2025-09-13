@@ -1,8 +1,19 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { completePaper } from "@/lib/actions/paper-actions";
-import { CheckSquare, ListTodo } from "lucide-react";
+import { CheckSquare, FileText, ListTodo } from "lucide-react";
 import { toast } from "sonner";
+
+const generatePaperUrl = (paperId: string) => {
+  const parts = paperId.split("_");
+  const subjectCode = parts[0];
+  const yearShort = parts[1].substring(1);
+
+  const program = subjectCode === "9618" ? "a-level" : "igcse";
+  const year = `20${yearShort}`;
+
+  return `/papers/${program}/${year}/${paperId}.pdf`;
+};
 
 export default function TodoPastPapersTab({
   papers,
@@ -33,16 +44,40 @@ export default function TodoPastPapersTab({
       <div className="grid gap-4">
         {papers.length > 0 ? (
           papers.map((paperId) => (
-            <Card key={paperId}>
+            <Card key={paperId} className="py-0.2">
               <CardContent className="p-4 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <ListTodo className="h-5 w-5 text-muted-foreground" />
-                  <span className="font-mono font-medium">{paperId}</span>
+                  <a
+                    href={generatePaperUrl(paperId)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-mono font-medium hover:underline hover:text-primary transition-colors"
+                  >
+                    {paperId}
+                  </a>
                 </div>
-                <Button size="sm" onClick={() => handleCompletePaper(paperId)}>
-                  <CheckSquare className="mr-2 h-4 w-4" />
-                  Mark as Complete
-                </Button>
+                <div className="flex items-center gap-2">
+                  <Button asChild variant="outline" size="sm">
+                    <a
+                      href={generatePaperUrl(paperId)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FileText className="mr-2 h-4 w-4" />
+                      View Paper
+                    </a>
+                  </Button>
+
+                  <Button
+                    size="sm"
+                    className="cursor-pointer"
+                    onClick={() => handleCompletePaper(paperId)}
+                  >
+                    <CheckSquare className="mr-2 h-4 w-4" />
+                    Mark as Complete
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           ))
