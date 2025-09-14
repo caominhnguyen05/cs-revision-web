@@ -861,6 +861,37 @@ const papersData = {
 
     {
       program: "igcse",
+      qp: "0478_s20_qp_11.pdf",
+      ms: "0478_s20_ms_11.pdf",
+    },
+    {
+      program: "igcse",
+      qp: "0478_s20_qp_12.pdf",
+      ms: "0478_s20_ms_12.pdf",
+    },
+    {
+      program: "igcse",
+      qp: "0478_s20_qp_13.pdf",
+      ms: "0478_s20_ms_13.pdf",
+    },
+    {
+      program: "igcse",
+      qp: "0478_s20_qp_21.pdf",
+      ms: "0478_s20_ms_21.pdf",
+    },
+    {
+      program: "igcse",
+      qp: "0478_s20_qp_22.pdf",
+      ms: "0478_s20_ms_22.pdf",
+    },
+    {
+      program: "igcse",
+      qp: "0478_s20_qp_23.pdf",
+      ms: "0478_s20_ms_23.pdf",
+    },
+
+    {
+      program: "igcse",
       qp: "0478_w19_qp_11.pdf",
       ms: "0478_w19_ms_11.pdf",
     },
@@ -888,6 +919,37 @@ const papersData = {
       program: "igcse",
       qp: "0478_w19_qp_23.pdf",
       ms: "0478_w19_ms_23.pdf",
+    },
+
+    {
+      program: "igcse",
+      qp: "0478_s19_qp_11.pdf",
+      ms: "0478_s19_ms_11.pdf",
+    },
+    {
+      program: "igcse",
+      qp: "0478_s19_qp_12.pdf",
+      ms: "0478_s19_ms_12.pdf",
+    },
+    {
+      program: "igcse",
+      qp: "0478_s19_qp_13.pdf",
+      ms: "0478_s19_ms_13.pdf",
+    },
+    {
+      program: "igcse",
+      qp: "0478_s19_qp_21.pdf",
+      ms: "0478_s19_ms_21.pdf",
+    },
+    {
+      program: "igcse",
+      qp: "0478_s19_qp_22.pdf",
+      ms: "0478_s19_ms_22.pdf",
+    },
+    {
+      program: "igcse",
+      qp: "0478_s19_qp_23.pdf",
+      ms: "0478_s19_ms_23.pdf",
     },
 
     {
@@ -923,6 +985,37 @@ const papersData = {
 
     {
       program: "igcse",
+      qp: "0478_s18_qp_11.pdf",
+      ms: "0478_s18_ms_11.pdf",
+    },
+    {
+      program: "igcse",
+      qp: "0478_s18_qp_12.pdf",
+      ms: "0478_s18_ms_12.pdf",
+    },
+    {
+      program: "igcse",
+      qp: "0478_s18_qp_13.pdf",
+      ms: "0478_s18_ms_13.pdf",
+    },
+    {
+      program: "igcse",
+      qp: "0478_s18_qp_21.pdf",
+      ms: "0478_s18_ms_21.pdf",
+    },
+    {
+      program: "igcse",
+      qp: "0478_s18_qp_22.pdf",
+      ms: "0478_s18_ms_22.pdf",
+    },
+    {
+      program: "igcse",
+      qp: "0478_s18_qp_23.pdf",
+      ms: "0478_s18_ms_23.pdf",
+    },
+
+    {
+      program: "igcse",
       qp: "0478_w17_qp_11.pdf",
       ms: "0478_w17_ms_11.pdf",
     },
@@ -950,6 +1043,37 @@ const papersData = {
       program: "igcse",
       qp: "0478_w17_qp_23.pdf",
       ms: "0478_w17_ms_23.pdf",
+    },
+
+    {
+      program: "igcse",
+      qp: "0478_s17_qp_11.pdf",
+      ms: "0478_s17_ms_11.pdf",
+    },
+    {
+      program: "igcse",
+      qp: "0478_s17_qp_12.pdf",
+      ms: "0478_s17_ms_12.pdf",
+    },
+    {
+      program: "igcse",
+      qp: "0478_s17_qp_13.pdf",
+      ms: "0478_s17_ms_13.pdf",
+    },
+    {
+      program: "igcse",
+      qp: "0478_s17_qp_21.pdf",
+      ms: "0478_s17_ms_21.pdf",
+    },
+    {
+      program: "igcse",
+      qp: "0478_s17_qp_22.pdf",
+      ms: "0478_s17_ms_22.pdf",
+    },
+    {
+      program: "igcse",
+      qp: "0478_s17_qp_23.pdf",
+      ms: "0478_s17_ms_23.pdf",
     },
   ],
 };
