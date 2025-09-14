@@ -1,4 +1,4 @@
-import papersData from "./papers-data.json";
+import papersData from "./papers-data";
 
 export const parseFileName = (filename: string) => {
   const parts = filename.split("_");
