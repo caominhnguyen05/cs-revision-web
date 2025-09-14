@@ -1,6 +1,6 @@
 import papersData from "./papers-data.json";
 
-const parseFileName = (filename: string) => {
+export const parseFileName = (filename: string) => {
   const parts = filename.split("_");
   if (parts.length < 3) return null;
 
@@ -58,4 +58,25 @@ export const getPapersForSeries = (program: string, seriesSlug: string) => {
         year: parsed!.fullYear,
       };
     });
+};
+
+export const buildPaperUrl = (
+  program: "a-level" | "igcse",
+  parsed: ReturnType<typeof parseFileName>,
+  filename: string
+) => {
+  const subjectFolders: Record<string, string> = {
+    "a-level":
+      "Computer%20Science%20(for%20first%20examination%20in%202021)%20(9618)",
+    igcse: "Computer-Science-0478",
+  };
+
+  const seriesFolder = `${parsed?.fullYear}-${parsed?.seasonName.replace(
+    "/",
+    "-"
+  )}`;
+
+  return `https://pastpapers.co/cie/${
+    program === "a-level" ? "A-Level" : "IGCSE"
+  }/${subjectFolders[program]}/${seriesFolder}/${filename}`;
 };

@@ -1,7 +1,12 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { getAvailableSeries, getPapersForSeries } from "@/lib/paper-utils";
+import {
+  buildPaperUrl,
+  getAvailableSeries,
+  getPapersForSeries,
+  parseFileName,
+} from "@/lib/paper-utils";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
@@ -231,7 +236,11 @@ export default function PastPapersLayoutPage({
                       </CardHeader>
                       <CardContent className="flex justify-between items-center">
                         <a
-                          href={`/papers/${paper.program}/${paper.year}/${paper.qp}`}
+                          href={buildPaperUrl(
+                            paper.program as "a-level" | "igcse",
+                            parseFileName(paper.qp)!,
+                            paper.qp
+                          )}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
@@ -244,7 +253,11 @@ export default function PastPapersLayoutPage({
                           </Button>
                         </a>
                         <a
-                          href={`/papers/${paper.program}/${paper.year}/${paper.ms}`}
+                          href={buildPaperUrl(
+                            paper.program as "a-level" | "igcse",
+                            parseFileName(paper.qp)!,
+                            paper.ms
+                          )}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
