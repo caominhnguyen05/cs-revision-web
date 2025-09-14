@@ -34,6 +34,7 @@ import {
   addTodoPaper,
   removeTodoPaper,
 } from "@/lib/actions/paper-actions";
+import { Badge } from "@/components/ui/badge";
 
 interface Paper {
   program: string;
@@ -169,7 +170,20 @@ export default function PastPapersLayoutPage({
             </Sheet>
 
             {/* Page Title */}
-            <h1 className="text-xl font-bold truncate">{pageTitle}</h1>
+            <h1 className="text-xl font-bold truncate flex items-center gap-2">
+              {programName}
+              {currentSeries && (
+                <Badge
+                  className={
+                    program === "a-level"
+                      ? "bg-green-100 text-green-800 font-medium px-3 py-1 text-base rounded-lg"
+                      : "bg-orange-100 text-orange-800 font-medium px-3 py-1 text-base rounded-lg"
+                  }
+                >
+                  {currentSeries.displayName}
+                </Badge>
+              )}
+            </h1>
           </header>
 
           {/* Paper List */}
