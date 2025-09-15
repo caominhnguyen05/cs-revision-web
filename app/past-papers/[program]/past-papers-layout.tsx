@@ -38,6 +38,7 @@ import {
   removeTodoPaper,
 } from "@/lib/actions/paper-actions";
 import { Badge } from "@/components/ui/badge";
+import { ThresholdViewer } from "@/components/threshold-viewer";
 
 interface Paper {
   program: string;
@@ -344,18 +345,10 @@ export default function PastPapersLayoutPage({
                     })}
                   </div>
                 ) : (
-                  <Card>
-                    <CardHeader>
-                      <CardTitle>Grade Thresholds</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p>
-                        Displaying grade thresholds for {programName}{" "}
-                        {currentSeries?.displayName}.
-                      </p>
-                      {/* TODO: Add grade threshold content */}
-                    </CardContent>
-                  </Card>
+                  <ThresholdViewer
+                    program={program}
+                    seriesSlug={activeSeriesSlug}
+                  />
                 )}
               </TabsContent>
             </Tabs>
