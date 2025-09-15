@@ -80,3 +80,28 @@ export const buildPaperUrl = (
     program === "a-level" ? "A-Level" : "IGCSE"
   }/${subjectFolders[program]}/${seriesFolder}/${filename}`;
 };
+
+export const buildThresholdUrl = (
+  program: "a-level" | "igcse",
+  activeSeriesSlug: string
+) => {
+  const subjectFolders: Record<string, string> = {
+    "a-level":
+      "Computer%20Science%20(for%20first%20examination%20in%202021)%20(9618)",
+    igcse: "Computer-Science-0478",
+  };
+
+  const year = activeSeriesSlug.split("-")[0];
+  const seriesCode = activeSeriesSlug.split("-")[1];
+  const month = seriesCode === "mj" ? "May-June" : "Oct-Nov";
+  const seriesFolder = `${year}-${month}`;
+
+  const programCode = program === "a-level" ? "9618" : "0478";
+  const season = seriesCode === "mj" ? "s" : "w";
+  const yearShort = year.substring(2);
+  const thresholdFileName = `${programCode}_${season}${yearShort}_gt.pdf`;
+
+  return `https://pastpapers.co/cie/${
+    program === "a-level" ? "A-Level" : "IGCSE"
+  }/${subjectFolders[program]}/${seriesFolder}/${thresholdFileName}`;
+};
